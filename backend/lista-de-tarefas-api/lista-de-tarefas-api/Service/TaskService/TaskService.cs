@@ -11,6 +11,7 @@ namespace lista_de_tarefas_api.Service.TaskService
         {
             _context = context;
         }
+
         public async Task<ServiceResponse<List<TaskModel>>> GetTasks()
         {
             ServiceResponse<List<TaskModel>> serviceResponse = new ServiceResponse<List<TaskModel>>();
@@ -33,5 +34,38 @@ namespace lista_de_tarefas_api.Service.TaskService
 
             return serviceResponse;
         }
+
+        public async Task<ServiceResponse<List<TaskModel>>> CreateTask(TaskModel newTask)
+        {
+            ServiceResponse<List<TaskModel>> serviceResponse = new ServiceResponse<List<TaskModel>>();
+
+            try
+            {
+                if (newTask == null)
+                {
+                    serviceResponse.Data = null;
+                    serviceResponse.Message = "Informar dados!";
+                    serviceResponse.Success = false;
+
+                    return serviceResponse;
+                }
+
+                _context.Add(newTask);
+                await _context.SaveChangesAsync();
+
+                serviceResponse.Data = _context.Tasks.ToList();
+
+
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Message = ex.Message;
+                serviceResponse.Success = false;
+            }
+
+            return serviceResponse;
+        }
+
+        
     }
 }

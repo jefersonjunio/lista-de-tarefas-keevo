@@ -20,5 +20,11 @@ namespace lista_de_tarefas_api.Controllers
         {
             return Ok(await _taskInterface.GetTasks());
         }
+
+        [HttpPost]
+        public async Task<ActionResult<ServiceResponse<List<TaskModel>>>> CreateTask(TaskModel newTask)
+        {
+            return Ok(await _taskInterface.CreateTask(newTask));
+        }
     }
 }
