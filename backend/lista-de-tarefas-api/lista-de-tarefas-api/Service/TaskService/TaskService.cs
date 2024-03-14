@@ -66,6 +66,32 @@ namespace lista_de_tarefas_api.Service.TaskService
             return serviceResponse;
         }
 
-        
+        public async Task<ServiceResponse<TaskModel>> GetTaskById(int id)
+        {
+            ServiceResponse<TaskModel> serviceResponse = new ServiceResponse<TaskModel>();
+
+            try
+            {
+                TaskModel funcionario = _context.Tasks.FirstOrDefault(x => x.Id == id);
+
+                if (funcionario == null)
+                {
+                    serviceResponse.Data = null;
+                    serviceResponse.Message = "Tarefa não localizada!";
+                    serviceResponse.Success = false;
+                }
+
+                serviceResponse.Data = funcionario;
+
+            }
+            catch (Exception ex)
+            {
+
+                serviceResponse.Message = ex.Message;
+                serviceResponse.Success = false;
+            }
+
+            return serviceResponse;
+        }
     }
 }

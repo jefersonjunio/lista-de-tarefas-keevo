@@ -26,5 +26,13 @@ namespace lista_de_tarefas_api.Controllers
         {
             return Ok(await _taskInterface.CreateTask(newTask));
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ServiceResponse<TaskModel>>> GetTaskById(int id)
+        {
+            ServiceResponse<TaskModel> serviceResponse = await _taskInterface.GetTaskById(id);
+
+            return Ok(serviceResponse);
+        }
     }
 }
