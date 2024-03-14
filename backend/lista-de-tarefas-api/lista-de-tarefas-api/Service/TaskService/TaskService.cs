@@ -127,5 +127,36 @@ namespace lista_de_tarefas_api.Service.TaskService
 
             return serviceResponse;
         }
+
+        public async Task<ServiceResponse<List<TaskModel>>> DeleteTask(int id)
+        {
+            ServiceResponse<List<TaskModel>> serviceResponse = new ServiceResponse<List<TaskModel>>();
+
+            try
+            {
+                TaskModel tarefa = _context.Tasks.FirstOrDefault(x => x.Id == id);
+
+                if (tarefa == null)
+                {
+                    serviceResponse.Data = null;
+                    serviceResponse.Message = "Tarefa não encontrada!";
+                    serviceResponse.Success = false;
+
+                    return serviceResponse;
+                }
+
+                _context.Tasks.Remove(tarefa);
+                await _context.SaveChangesAsync();
+
+                serviceResponse.Data = _context.Tasks.ToList();
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Message = ex.Message;
+                serviceResponse.Success = false;
+            }
+
+            return serviceResponse;
+        }
     }
 }

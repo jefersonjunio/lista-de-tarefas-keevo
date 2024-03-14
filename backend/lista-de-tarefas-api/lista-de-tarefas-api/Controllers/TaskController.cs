@@ -42,5 +42,13 @@ namespace lista_de_tarefas_api.Controllers
 
             return Ok(serviceResponse);
         }
+
+        [HttpDelete]
+        public async Task<ActionResult<ServiceResponse<List<TaskModel>>>> DeleteTask(int id)
+        {
+            ServiceResponse<List<TaskModel>> serviceResponse = await _taskInterface.DeleteTask(id);
+
+            return Ok(serviceResponse);
+        }
     }
 }
