@@ -1,6 +1,24 @@
-﻿namespace lista_de_tarefas_api.Controllers
+﻿using lista_de_tarefas_api.Models;
+using lista_de_tarefas_api.Service.TaskService;
+using Microsoft.AspNetCore.Mvc;
+
+namespace lista_de_tarefas_api.Controllers
 {
-    public class TaskController
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TaskController : ControllerBase
     {
+        private readonly ITaskInterface _taskInterface;
+
+        public TaskController(ITaskInterface taskInterface)
+        {
+            _taskInterface = taskInterface;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<ServiceResponse<List<TaskModel>>>> GetTasks()
+        {
+            return Ok(await _taskInterface.GetTasks());
+        }
     }
 }
