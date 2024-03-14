@@ -1,5 +1,6 @@
 ﻿using lista_de_tarefas_api.DataContext;
 using lista_de_tarefas_api.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace lista_de_tarefas_api.Service.TaskService
 {
@@ -87,6 +88,39 @@ namespace lista_de_tarefas_api.Service.TaskService
             catch (Exception ex)
             {
 
+                serviceResponse.Message = ex.Message;
+                serviceResponse.Success = false;
+            }
+
+            return serviceResponse;
+        }
+
+        public async Task<ServiceResponse<List<TaskModel>>> UpdateTask(TaskModel taskToEdit)
+        {
+            ServiceResponse<List<TaskModel>> serviceResponse = new ServiceResponse<List<TaskModel>>();
+
+            try
+            {
+                TaskModel tarefa = _context.Tasks.AsNoTracking().FirstOrDefault(x => x.Id == taskToEdit.Id);
+
+                if (tarefa == null)
+                {
+                    serviceResponse.Data = null;
+                    serviceResponse.Message = "Tarefa não encontrada!";
+                    serviceResponse.Success = false;
+                }
+
+                tarefa.Description = taskToEdit.Description;
+
+                _context.Tasks.Update(taskToEdit);
+
+                await _context.SaveChangesAsync();
+
+                serviceResponse.Data = _context.Tasks.ToList();
+
+            }
+            catch (Exception ex)
+            {
                 serviceResponse.Message = ex.Message;
                 serviceResponse.Success = false;
             }

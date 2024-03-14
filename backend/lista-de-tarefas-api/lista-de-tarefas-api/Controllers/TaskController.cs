@@ -34,5 +34,13 @@ namespace lista_de_tarefas_api.Controllers
 
             return Ok(serviceResponse);
         }
+
+        [HttpPut]
+        public async Task<ActionResult<ServiceResponse<List<TaskModel>>>> UpdateTask(TaskModel taskToEdit)
+        {
+            ServiceResponse<List<TaskModel>> serviceResponse = await _taskInterface.UpdateTask(taskToEdit);
+
+            return Ok(serviceResponse);
+        }
     }
 }
