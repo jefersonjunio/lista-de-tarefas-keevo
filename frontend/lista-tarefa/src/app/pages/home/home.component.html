@@ -15,22 +15,20 @@
       </div>
     </form>
     <!--Tabela -->
-    <table mat-table class="mat-elevation-z8">
+    <table mat-table class="mat-elevation-z8" [dataSource]="tasks">
       <ng-container matColumnDef="Status">
         <th mat-header-cell *matHeaderCellDef>Status</th>
-
+        <td mat-cell *matCellDef="let task"> {{task.status}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Descrição">
         <th mat-header-cell *matHeaderCellDef>Descrição</th>
-        <td mat-cell> rteste </td>
-        <td mat-cell> rteste </td>
-        <td mat-cell> rteste </td>
+        <td mat-cell *matCellDef="let task"> {{task.description}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Editar">
         <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell>
+        <td mat-cell  mat-cell *matCellDef="let task">
          <button mat-fab color="accent">
           <mat-icon>edit</mat-icon>
         </button>
@@ -39,7 +37,7 @@
 
       <ng-container matColumnDef="Excluir">
         <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell>
+        <td mat-cell *matCellDef="let task">
           <button mat-fab color="warn">
             <mat-icon>delete</mat-icon>
           </button>
