@@ -2,11 +2,11 @@
 <main>
   <mat-card>
     <!--Formulario status-->
-    <form>
+    <form [formGroup]="statusForm" #formDit="ngForm">
       <div>
         <mat-form-field>
           <mat-label>Procurar por status</mat-label>
-          <mat-select id="status" formControlName="status">
+          <mat-select id="status" formControlName="status" (selectionChange)="searchStatus()">
             <mat-option value="Todos">Todos</mat-option>
             <mat-option value="Concluido">Concluido</mat-option>
             <mat-option value="Inicializado">Inicializado</mat-option>
