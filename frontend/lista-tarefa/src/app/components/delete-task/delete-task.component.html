@@ -1,0 +1,9 @@
+<div class="container">
+  <div *ngIf="task">
+    <h2>Tem certeza que deseja excluir?</h2>
+    <div class="btn-container">
+      <button mat-raised-button color="warn" (click)="delete()">Excluir</button>
+      <button mat-raised-button color="accent" (click)="back()">Voltar</button>
+    </div>
+  </div>
+</div>

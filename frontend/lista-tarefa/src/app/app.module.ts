@@ -21,6 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RegisterTaskComponent } from './pages/register-task/register-task.component';
 import { FormTaskComponent } from './components/form-task/form-task.component';
 import { EditTaskComponent } from './pages/edit-task/edit-task.component';
+import { DeleteTaskComponent } from './components/delete-task/delete-task.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { EditTaskComponent } from './pages/edit-task/edit-task.component';
     HeaderComponent,
     RegisterTaskComponent,
     FormTaskComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    DeleteTaskComponent
   ],
   imports: [
     BrowserModule,
