@@ -17,6 +17,8 @@ export class RegisterTaskComponent {
   }
 
   createTask(task: Task) {
-
+    this.taskService.CreateTask(task).subscribe(() => {
+      this.router.navigate(['']);
+    })
   }
 }
