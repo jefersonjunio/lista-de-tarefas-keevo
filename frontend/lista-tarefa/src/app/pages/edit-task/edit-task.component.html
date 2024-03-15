@@ -1,0 +1,9 @@
+<app-header [buttonOn]="false"></app-header>
+<main *ngIf="task">
+  <app-form-task
+     [titleHeader]="titleHeader"
+     [titleButton]="titleButton"
+     (onSubmit)="editTask($event)"
+     [dataTask]="task"
+     ></app-form-task>
+</main>

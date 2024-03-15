@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Task } from 'src/app/models/Task';
 
@@ -7,7 +7,7 @@ import { Task } from 'src/app/models/Task';
   templateUrl: './form-task.component.html',
   styleUrls: ['./form-task.component.css']
 })
-export class FormTaskComponent {
+export class FormTaskComponent implements OnInit  {
   @Output() onSubmit = new EventEmitter<Task>();
   @Input() titleButton!: string;
   @Input() titleHeader!: string;
@@ -21,6 +21,8 @@ export class FormTaskComponent {
       description: new FormControl(this.dataTask ? this.dataTask.description : '', [Validators.required]),
       status: new FormControl(this.dataTask ? this.dataTask.status : 'Inicializado'),
     });
+
+    console.log(this.dataTask?.description);
   }
 
   submit() {

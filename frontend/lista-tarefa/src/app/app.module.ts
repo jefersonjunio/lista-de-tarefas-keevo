@@ -20,6 +20,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { RegisterTaskComponent } from './pages/register-task/register-task.component';
 import { FormTaskComponent } from './components/form-task/form-task.component';
+import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormTaskComponent } from './components/form-task/form-task.component';
     HomeComponent,
     HeaderComponent,
     RegisterTaskComponent,
-    FormTaskComponent
+    FormTaskComponent,
+    EditTaskComponent
   ],
   imports: [
     BrowserModule,

@@ -9,8 +9,10 @@
         <mat-label>Descrição</mat-label>
         <input
           matInput
+          id="description"
           placeholder="Descrição da tarefa"
-          type="text" formControlName="description"
+          type="text"
+          formControlName="description"
           required
         >
       </mat-form-field>
@@ -29,10 +31,10 @@
 
     <div class="btn-container">
       <button
-      mat-raised-button
-      color="accent"
-      type="submit"
-      [disabled]="!taskForm.valid"
+        mat-raised-button
+        color="accent"
+        type="submit"
+        [disabled]="!taskForm.valid"
       >
       {{ titleButton }}
       </button>

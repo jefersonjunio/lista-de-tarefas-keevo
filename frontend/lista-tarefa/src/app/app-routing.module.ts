@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { RegisterTaskComponent } from './pages/register-task/register-task.component';
+import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterTaskComponent
+  },
+  {
+    path: 'edit/:id',
+    component: EditTaskComponent
   }
 ];
 
