@@ -1,0 +1,43 @@
+<mat-card>
+  <h2>{{ titleHeader }}</h2>
+
+  <form [formGroup]="taskForm" (ngSubmit)="submit()" #formDit="ngForm">
+    <input type="hidden" formControlName="id">
+
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Descrição</mat-label>
+        <input
+          matInput
+          placeholder="Descrição da tarefa"
+          type="text" formControlName="description"
+          required
+        >
+      </mat-form-field>
+    </div>
+
+
+    <div>
+      <mat-form-field>
+        <mat-label>Status</mat-label>
+        <mat-select id="status" formControlName="status" required>
+          <mat-option value="Concluido">Concluido</mat-option>
+          <mat-option value="Inicializado">Inicializado</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="btn-container">
+      <button
+      mat-raised-button
+      color="accent"
+      type="submit"
+      [disabled]="!taskForm.valid"
+      >
+      {{ titleButton }}
+      </button>
+      <button mat-raised-button routerLink="">Voltar</button>
+    </div>
+  </form>
+
+</mat-card>

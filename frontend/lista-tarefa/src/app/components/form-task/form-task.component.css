@@ -1,0 +1,58 @@
+mat-card {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 3rem;
+  margin-top: 5rem;
+}
+
+h2 {
+  color:black;
+  margin-bottom: 40px;
+}
+
+mat-form-field {
+  width: 500px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mat-mdc-raised-button {
+  width: 50%;
+  margin: 8px 8px 0px 0px;
+}
+
+@media screen and (min-width: 1000px) {
+
+  mat-card {
+    width: 750px;
+  }
+}
+
+@media screen and (max-width: 782px) {
+  mat-form-field {
+    width: 400px;
+  }
+
+  mat-card {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  mat-form-field {
+    width: 250px;
+  }
+
+  mat-card {
+    width: 95%;
+
+  }
+}
