@@ -22,6 +22,7 @@ import { RegisterTaskComponent } from './pages/register-task/register-task.compo
 import { FormTaskComponent } from './components/form-task/form-task.component';
 import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 import { DeleteTaskComponent } from './components/delete-task/delete-task.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { DeleteTaskComponent } from './components/delete-task/delete-task.compon
     MatSelectModule,
     MatTableModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [],

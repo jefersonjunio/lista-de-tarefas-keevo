@@ -12,6 +12,7 @@ import { TaskService } from 'src/app/services/task.service';
 export class DeleteTaskComponent implements OnInit {
   inputData: any;
   task!: Task;
+  loading: boolean = false;
 
   constructor (
     private taskService: TaskService,
@@ -21,6 +22,10 @@ export class DeleteTaskComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.taskService.loading$.subscribe((loading) => {
+      this.loading = loading;
+    });
+
     this.inputData = this.data;
     this.taskService.GetTaskById(this.inputData.id).subscribe((responseTask) => {
       this.task = responseTask.data;
@@ -28,6 +33,10 @@ export class DeleteTaskComponent implements OnInit {
   }
 
   delete() {
+    this.taskService.loading$.subscribe((loading) => {
+      this.loading = loading;
+    });
+
     this.taskService.DeleteTask(this.inputData.id).subscribe(() => {
       this.ref.close();
       window.location.reload();

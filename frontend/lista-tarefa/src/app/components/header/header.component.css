@@ -12,6 +12,7 @@ header {
 
 .title {
  margin: 0px;
+ color: white;
 }
 
 /* Estilos para telas menores que 600px de largura */
@@ -21,6 +22,10 @@ header {
     text-align: center;
   }
   .mat-raised-button {
-    margin-top: 10px;
+    margin-top: 20px;
+  }
+
+  .mat-mdc-raised-button {
+    margin-bottom: 10px;
   }
 }

@@ -1,9 +1,13 @@
 <app-header [buttonOn]="false"></app-header>
+<div class="spinner-container" *ngIf="loading">
+  <mat-spinner *ngIf="loading" mode="indeterminate"></mat-spinner>
+</div>
 <main *ngIf="task">
   <app-form-task
      [titleHeader]="titleHeader"
      [titleButton]="titleButton"
      (onSubmit)="editTask($event)"
      [dataTask]="task"
+     *ngIf="!loading"
      ></app-form-task>
 </main>

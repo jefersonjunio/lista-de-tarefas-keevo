@@ -15,13 +15,18 @@ export class HomeComponent implements OnInit {
   tasks: Task[] = [];
   status: Task[] = [];
   statusForm!: FormGroup
+  loading: boolean = true;
 
   constructor(private taskService: TaskService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.taskService.GetTasks().subscribe((responseTask) => {
-       this.tasks = responseTask.data
-       this.status = responseTask.data
+    this.taskService.loading$.subscribe((loading) => {
+      this.loading = loading;
+    });
+
+    this.taskService.GetTasks().subscribe((response) => {
+      this.tasks = response.data;
+      this.status = response.data;
     });
 
     this.statusForm = new FormGroup({

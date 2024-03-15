@@ -11,12 +11,17 @@ import { TaskService } from 'src/app/services/task.service';
 export class RegisterTaskComponent {
   title = 'Cadastre sua tarefa';
   titleButton = 'Cadastrar';
+  loading: boolean = false;
 
   constructor(private taskService: TaskService, private router: Router) {
 
   }
 
   createTask(task: Task) {
+    this.taskService.loading$.subscribe((loading) => {
+      this.loading = loading;
+    });
+
     this.taskService.CreateTask(task).subscribe(() => {
       this.router.navigate(['']);
     })

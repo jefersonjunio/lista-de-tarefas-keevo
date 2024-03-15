@@ -1,6 +1,9 @@
 <app-header routerLink="register"></app-header>
+<div class="spinner-container" *ngIf="loading">
+  <mat-spinner *ngIf="loading" mode="indeterminate"></mat-spinner>
+</div>
 <main>
-  <mat-card>
+  <mat-card *ngIf="!loading">
     <!--Formulario status-->
     <form [formGroup]="statusForm" #formDit="ngForm">
       <div>

@@ -12,11 +12,17 @@ export class EditTaskComponent implements OnInit {
   titleHeader = 'Editar tarefa';
   titleButton = 'Editar';
   task!: Task;
+  loading: boolean = false;
 
   constructor(private taskService: TaskService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
+
+    this.taskService.loading$.subscribe((loading) => {
+      this.loading = loading;
+    });
+
 
     this.taskService.GetTaskById(id).subscribe((responseTask) => {
       this.task = responseTask.data;
@@ -24,6 +30,10 @@ export class EditTaskComponent implements OnInit {
   }
 
   editTask(task: Task) {
+    this.taskService.loading$.subscribe((loading) => {
+      this.loading = loading;
+    });
+
     this.taskService.EditTask(task).subscribe(() => {
       this.router.navigate(['/']);
     })
