@@ -1,0 +1,60 @@
+main {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.input_box {
+  width: 500px;
+}
+
+.btn-box {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-box button {
+  width: 50%;
+}
+
+mat-form-field {
+  width: 500px;
+}
+
+.mat-mdc-fab {
+  height: 36px;
+  width: 36px;
+}
+
+@media screen and (max-width: 782px) {
+  mat-form-field {
+    width: 400px;
+  }
+
+  mat-card {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  mat-form-field {
+    width: 250px;
+  }
+
+  mat-card {
+    width: 95%;
+  }
+}

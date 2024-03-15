@@ -1,1 +1,53 @@
 <app-header></app-header>
+<main>
+  <mat-card>
+    <!--Formulario status-->
+    <form>
+      <div>
+        <mat-form-field>
+          <mat-label>Procurar por status</mat-label>
+          <mat-select id="status" formControlName="status">
+            <mat-option value="Todos">Todos</mat-option>
+            <mat-option value="Concluido">Concluido</mat-option>
+            <mat-option value="Inicializado">Inicializado</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+    <!--Tabela -->
+    <table mat-table class="mat-elevation-z8">
+      <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+
+      </ng-container>
+
+      <ng-container matColumnDef="Descrição">
+        <th mat-header-cell *matHeaderCellDef>Descrição</th>
+        <td mat-cell> rteste </td>
+        <td mat-cell> rteste </td>
+        <td mat-cell> rteste </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Editar">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell>
+         <button mat-fab color="accent">
+          <mat-icon>edit</mat-icon>
+        </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Excluir">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell>
+          <button mat-fab color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columns"></tr>
+      <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+    </table>
+  </mat-card>
+</main>
