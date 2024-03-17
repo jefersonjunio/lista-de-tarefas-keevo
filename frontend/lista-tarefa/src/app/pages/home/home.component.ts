@@ -15,7 +15,8 @@ export class HomeComponent implements OnInit {
   tasks: Task[] = [];
   status: Task[] = [];
   statusForm!: FormGroup
-  loading: boolean = true;
+  loading: boolean = false;
+  responseMessage: string = '';
 
   constructor(private taskService: TaskService, public dialog: MatDialog) {}
 
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
     this.taskService.GetTasks().subscribe((response) => {
       this.tasks = response.data;
       this.status = response.data;
+      this.responseMessage = response.message;
     });
 
     this.statusForm = new FormGroup({

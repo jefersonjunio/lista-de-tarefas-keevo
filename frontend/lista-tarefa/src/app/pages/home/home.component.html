@@ -3,7 +3,7 @@
   <mat-spinner *ngIf="loading" mode="indeterminate"></mat-spinner>
 </div>
 <main>
-  <mat-card *ngIf="!loading">
+  <mat-card *ngIf="!loading" >
     <!--Formulario status-->
     <form [formGroup]="statusForm" #formDit="ngForm">
       <div>
@@ -50,5 +50,7 @@
       <tr mat-header-row *matHeaderRowDef="columns"></tr>
       <tr mat-row *matRowDef="let row; columns: columns;"></tr>
     </table>
+
+    <h3 *ngIf="tasks.length === 0">{{responseMessage}}</h3>
   </mat-card>
 </main>

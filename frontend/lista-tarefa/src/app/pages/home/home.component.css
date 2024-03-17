@@ -39,6 +39,10 @@ mat-form-field {
   width: 36px;
 }
 
+h3 {
+  margin-top: 20px;
+}
+
 @media screen and (max-width: 782px) {
   mat-form-field {
     width: 400px;

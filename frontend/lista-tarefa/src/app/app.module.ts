@@ -23,6 +23,7 @@ import { FormTaskComponent } from './components/form-task/form-task.component';
 import { EditTaskComponent } from './pages/edit-task/edit-task.component';
 import { DeleteTaskComponent } from './components/delete-task/delete-task.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MessageComponent } from './components/message/message.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     RegisterTaskComponent,
     FormTaskComponent,
     EditTaskComponent,
-    DeleteTaskComponent
+    DeleteTaskComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
