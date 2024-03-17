@@ -1,0 +1,25 @@
+.container {
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+h3 {
+  color: black;
+}
+
+.btn-container {
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  mat-form-field {
+    width: 250px;
+  }
+}
