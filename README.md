@@ -28,6 +28,7 @@ A aplicação tem por objetivo cadastrar alguma tarefa, como por exemplo: "Estud
 
 #### Pré-requisitos
 - Ter o [Visual Studio Community](https://visualstudio.microsoft.com/pt-br/vs/community/), o [SDK 6.0](https://dotnet.microsoft.com/pt-br/download/dotnet/6.0) e o [Postgres](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) instalados na sua máquina.
+- Ter o [NodeJS](https://nodejs.org/en/download) e o Angular 16 instalados na sua máquina.
 - Clonar este repositório
 
 #### Passo a passo - backend
