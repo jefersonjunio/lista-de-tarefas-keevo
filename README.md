@@ -5,6 +5,9 @@ Aplicação web para gerenciar uma Lista de Tarefas.
 A Lista de Tarefas é uma aplicação web que visa concluir os requisitos do desafio. Ele é um aplicativo simples, mas que pode ser escalado.
 A aplicação tem por objetivo cadastrar alguma tarefa, como por exemplo: "Estudar Angular", e também o seu status (Inicializado ou Concluido). Além disso, terá uma listagem de todas as tarefas cadastradas podendo editar, excluir e pesquisar por status.
 
+![Lista de Tarefas - Google Chrome 2024-03-18 09-46-27 (2)](https://github.com/jefersonjunio/lista-de-tarefas-keevo/assets/103046781/781d70b3-36f6-486b-a5a9-86dd7875bc8d)
+
+
 ## Principais linguagens, tecnologias e ferramentas utilizadas
 
 ### Frontend
